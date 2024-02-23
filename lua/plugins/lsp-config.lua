@@ -8,17 +8,18 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
-    opts = {
-      auto_install = true,
-      },
-    -- config = function()
-    --  require("mason-lspconfig").setup({
-        -- auto_install = true,
-    --    ensure_installed = { "lua_ls", "pyright", "ruff_lsp"}
+    -- opts = {
+    --  auto_install = true,
+    --  },
+    config = function()
+    require("mason-lspconfig").setup({
+        auto_install = true,
+       -- automatic_installation = false,
+        ensure_installed = { "lua_ls", "pyright", "ruff_lsp", "rust_analyzer"}
       -- navigate to this website for most lsp languages list
         -- https://github.com/williamboman/mason-lspconfig.nvim
-     -- })
-    -- end
+     })
+    end
   },
   {
     "neovim/nvim-lspconfig",
@@ -35,9 +36,15 @@ return {
       lspconfig.ruff_lsp.setup({
         capabilities = capabilities
       })
+      lspconfig.rust_analyzer.setup({
+        capabilities = capabilities
+      })
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {})
       vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
     end
+  },
+  {
+    "rust-lang/rust.vim"
   }
 }
