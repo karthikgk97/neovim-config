@@ -13,3 +13,6 @@ vim.g.mapleader = " "
 vim.keymap.set('x', '<leader>cp', ":s/^/#<CR>", {noremap = true})
 vim.keymap.set('x', '<leader>ucp', ":s/#/<CR>", {noremap = true})
 
+-- shortcut for commenting out in rust files
+vim.keymap.set('x', '<leader>cr', ":s/^/\\/\\/<CR>", {noremap = true})
+vim.keymap.set('x', '<leader>ucr', ":s/\\/\\//<CR>", {noremap = true})
