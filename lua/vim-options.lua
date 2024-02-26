@@ -7,6 +7,7 @@ vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set pumheight=10")
 vim.cmd("set nohlsearch")
+vim.cmd("set linebreak")
 vim.g.mapleader = " "
 
 -- shortcut for commenting out in python files
