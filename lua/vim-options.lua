@@ -10,6 +10,14 @@ vim.cmd("set nohlsearch")
 vim.cmd("set linebreak")
 vim.g.mapleader = " "
 
+-- set fold properties
+vim.cmd("set foldmethod=indent")
+vim.cmd("set foldlevel=2")
+--vim.cmd("set foldclose=all")
+vim.keymap.set("n", "<leader>fa", "zm", {noremap = true})
+vim.keymap.set("n", "<leader>ufa", "zr", {noremap=true})
+vim.keymap.set("n", "<leader>fc", "za", {noremap=true})
+
 -- shortcut for commenting out in python files
 vim.keymap.set("x", "<leader>cp", ":s/^/#<CR>", { noremap = true })
 vim.keymap.set("x", "<leader>ucp", ":s/#/<CR>", { noremap = true })
