@@ -8,11 +8,12 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set pumheight=10")
 vim.cmd("set nohlsearch")
 vim.cmd("set linebreak")
+vim.cmd("set clipboard+=unnamedplus")
 vim.g.mapleader = " "
 
 -- set fold properties
 vim.cmd("set foldmethod=indent")
-vim.cmd("set foldlevel=2")
+vim.cmd("set foldlevel=5")
 --vim.cmd("set foldclose=all")
 vim.keymap.set("n", "<leader>fa", "zm", {noremap = true})
 vim.keymap.set("n", "<leader>ufa", "zr", {noremap=true})
