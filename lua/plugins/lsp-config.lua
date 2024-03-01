@@ -46,5 +46,19 @@ return {
   },
   {
     "rust-lang/rust.vim"
+  },
+  {
+    'numToStr/Comment.nvim',
+    lazy = false,
+    config = function()
+      require("Comment").setup({
+        toggler = {
+          line = '<leader>lc'
+        },
+        opleader = {
+          line = '<leader>lc'
+        }
+      })
+    end
   }
 }
