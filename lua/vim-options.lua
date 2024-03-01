@@ -13,7 +13,7 @@ vim.g.mapleader = " "
 
 -- set fold properties
 vim.cmd("set foldmethod=indent")
-vim.cmd("set foldlevel=5")
+vim.cmd("set foldlevel=10")
 --vim.cmd("set foldclose=all")
 vim.keymap.set("n", "<leader>fa", "zm", {noremap = true})
 vim.keymap.set("n", "<leader>ufa", "zr", {noremap=true})
