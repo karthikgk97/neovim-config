@@ -11,9 +11,12 @@ vim.cmd("set linebreak")
 vim.g.mapleader = " "
 
 -- shortcut for commenting out in python files
-vim.keymap.set('x', '<leader>cp', ":s/^/#<CR>", {noremap = true})
-vim.keymap.set('x', '<leader>ucp', ":s/#/<CR>", {noremap = true})
+vim.keymap.set("x", "<leader>cp", ":s/^/#<CR>", { noremap = true })
+vim.keymap.set("x", "<leader>ucp", ":s/#/<CR>", { noremap = true })
 
 -- shortcut for commenting out in rust files
-vim.keymap.set('x', '<leader>cr', ":s/^/\\/\\/<CR>", {noremap = true})
-vim.keymap.set('x', '<leader>ucr', ":s/\\/\\//<CR>", {noremap = true})
+vim.keymap.set("x", "<leader>cr", ":s/^/\\/\\/<CR>", { noremap = true })
+vim.keymap.set("x", "<leader>ucr", ":s/\\/\\//<CR>", { noremap = true })
+
+-- shortcut for showing the errors
+vim.keymap.set("n", "<leader>se", ":lua vim.diagnostic.open_float()<CR>", { noremap = true })
