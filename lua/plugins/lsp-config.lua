@@ -15,7 +15,7 @@ return {
     require("mason-lspconfig").setup({
         auto_install = true,
        -- automatic_installation = false,
-        ensure_installed = { "lua_ls", "pyright", "ruff_lsp", "rust_analyzer"}
+        ensure_installed = { "lua_ls", "pyright", "ruff_lsp", "rust_analyzer", "gopls", "bufls" }
       -- navigate to this website for most lsp languages list
         -- https://github.com/williamboman/mason-lspconfig.nvim
      })
@@ -39,6 +39,12 @@ return {
       lspconfig.rust_analyzer.setup({
         capabilities = capabilities
       })
+      lspconfig.gopls.setup({
+        capabilities=capabilities
+      })
+      lspconfig.bufls.setup({
+        capabilities=capabilities
+      })
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {})
       vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
@@ -53,10 +59,10 @@ return {
     config = function()
       require("Comment").setup({
         toggler = {
-          line = '<leader>lc'
+          line = '<leader>/'
         },
         opleader = {
-          line = '<leader>lc'
+          line = '<leader>/'
         }
       })
     end
