@@ -89,33 +89,67 @@ return {
 
             lspconfig.jdtls.setup({
                 capabilities = capabilities,
-                on_attach = on_attach
+                on_attach = on_attach,
+                root_dir = require("lspconfig.util").root_pattern("pom.xml", "build.gradle", ".project", ".git",
+                    "build.gradle.kts") or vim.fn.getcwd(),
+                settings = {
+                    java = {
+                        configuration = {
+                            updateBuildConfiguration = "automatic",
+                        },
+                        maven = {
+                            downloadSources = true,
+                        },
+                        implementationsCodeLens = {
+                            enabled = true,
+                        },
+                        referencesCodeLens = {
+                            enabled = true,
+                        },
+                        format = {
+                            enabled = true,
+                        },
+                    },
+                    signatureHelp = {
+                        enabled = true,
+                    },
+                    completion = {
+                        favoriteStaticMembers = {
+                            "org.junit.Assert.*",
+                            "org.junit.Assume.*",
+                            "org.junit.jupiter.api.Assertions.*",
+                            "org.junit.jupiter.api.Assumptions.*",
+                            "org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*",
+                            "org.springframework.test.web.servlet.result.MockMvcResultMatchers.*",
+                        },
+                    },
+                },
             })
-                -- root_dir = require("lspconfig.util").root_pattern("pom.xml", "build.gradle", ".project", ".git",
-                --         "build.gradle.kts")
-                --     or vim.fn.getcwd(),
-                -- capabilities = capabilities,
-                -- cmd = {
-                --     -- "jdtls",
-                --     -- "java",
-                --     "/home/gk/.sdkman/candidates/java/21.0.6-tem",
-                --     -- "/home/gk/.sdkman/candidates/java/17.0.10-tem",
-                --     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-                --     '-Dosgi.bundles.defaultStartLevel=4',
-                --     '-Declipse.product=org.eclipse.jdt.ls.core.product',
-                --     '-Dlog.protocol=true',
-                --     '-Dlog.level=ALL',
-                --     '-Xmx1g',
-                --     '--add-modules=ALL-SYSTEM',
-                --     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
-                --     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-                --     "-configuration",
-                --     "/home/gk/.local/share/nvim/mason/packages/jdtls/config_linux",
-                --     -- "/home/gk/.cache/jdtls/config",
-                --     -- "-data",
-                --     -- "/home/gk/.cache/jdtls/workspace",
-                -- },
-                -- on_attach = on_attach,
+            -- root_dir = require("lspconfig.util").root_pattern("pom.xml", "build.gradle", ".project", ".git",
+            --         "build.gradle.kts")
+            --     or vim.fn.getcwd(),
+            -- capabilities = capabilities,
+            -- cmd = {
+            --     -- "jdtls",
+            --     -- "java",
+            --     "/home/gk/.sdkman/candidates/java/21.0.6-tem",
+            --     -- "/home/gk/.sdkman/candidates/java/17.0.10-tem",
+            --     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+            --     '-Dosgi.bundles.defaultStartLevel=4',
+            --     '-Declipse.product=org.eclipse.jdt.ls.core.product',
+            --     '-Dlog.protocol=true',
+            --     '-Dlog.level=ALL',
+            --     '-Xmx1g',
+            --     '--add-modules=ALL-SYSTEM',
+            --     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
+            --     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+            --     "-configuration",
+            --     "/home/gk/.local/share/nvim/mason/packages/jdtls/config_linux",
+            --     -- "/home/gk/.cache/jdtls/config",
+            --     -- "-data",
+            --     -- "/home/gk/.cache/jdtls/workspace",
+            -- },
+            -- on_attach = on_attach,
             -- })
 
             -- Global keymaps removed - they're now handled by the on_attach function
