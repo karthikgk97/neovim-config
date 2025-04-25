@@ -8,6 +8,7 @@ return {
       vim.keymap.set('n', '<C-p>', builtin.find_files, {})
       -- before setting live grep, do install ripgrep
       vim.keymap.set('n', '<leader>gp', builtin.live_grep, {})
+      vim.keymap.set('n', '<leader>fr', builtin.lsp_references, { noremap = true, silent=true })
     end
   },
   {
